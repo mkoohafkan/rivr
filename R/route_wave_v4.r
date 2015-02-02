@@ -86,21 +86,21 @@ NULL
 #'   depths and/or flows. the KWM implementation assumes the normal depth at the upstream
 #'   boundary and is only first-order accurate.
 #' @examples
-#' \donttest{ 
+#' \dontrun{ 
 #' # kinematic wave routing
-#' times = seq(0, 76000, by = 100)
+#' times = seq(0, 30000, by = 25)
 #' floodwave = ifelse(times >= 9000, 250,
 #'   250 + (750/pi)*(1 - cos(pi*times/(60*75))))
 #' route_wave(0.001, 0.045, 1.486, 32.2, 100, 0, initial.condition = 250, 
-#'   boundary.condition = floodwave, timestep = 100, spacestep = 250, 
-#'   numnodes=601, monitor.nodes = c(1, 201, 401, 601), 
-#'   monitor.times = seq(length(times), by = 10), engine = "Kinematic")
+#'   boundary.condition = floodwave, timestep = 25, spacestep = 50, 
+#'   numnodes=301, monitor.nodes = c(1, 101, 201, 301), 
+#'   monitor.times = seq(1, length(times), by = 10), engine = "Kinematic")
 #' # dynamic wave routing with zero-gradient downstream condition using MacCormack scheme
 #' route_wave(0.001, 0.045, 1.486, 32.2, 100, 0, initial.condition = 250, 
 #'   boundary.condition = floodwave, downstream.condition = rep(-1, length(times)), 
-#'   timestep = 100, spacestep = 250, numnodes = 601, engine = "Dynamic", 
-#'   scheme = "MacCormack", monitor.nodes = c(1, 201, 401, 601), 
-#'   monitor.times = seq(length(times), by = 10))
+#'   timestep = 25, spacestep = 500, numnodes = 31, engine = "Dynamic", 
+#'   scheme = "MacCormack", monitor.nodes = c(1, 11, 21, 31), 
+#'   monitor.times = seq(1, length(times), by = 10))
 #' # mixed boundary conditions (sudden gate closure) using Lax scheme
 #' lax = route_wave(0.00008, 0.013, 1, 9.81, 6.1, 1.5, 
 #'   initial.condition = 126, boundary.condition = rep(5.79, 2001), 
