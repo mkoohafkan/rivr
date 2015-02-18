@@ -105,8 +105,8 @@ normal_depth <- function(So, n, Q, yopt, Cm, B, SS) {
 #' @param SS Channel sideslope [\eqn{L L^{-1}}].
 #' @return The critical depth \eqn{y_c} [\eqn{L}].
 #' @examples
-#' critical_depth(250, 32.2, 2, 100, 0) # rectangular channel
-#' critical_depth(126, 9.81, 1, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
+#' critical_depth(250, 2, 32.2, 100, 0) # rectangular channel
+#' critical_depth(126, 1, 9.81, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 #' @export
 critical_depth <- function(Q, yopt, g, B, SS) {
     .Call('rivr_critical_depth', PACKAGE = 'rivr', Q, yopt, g, B, SS)

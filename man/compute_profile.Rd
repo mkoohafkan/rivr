@@ -47,9 +47,9 @@ data.frame with columns:
 Compute the gradually-varied flow profile of a prismatic channel.
 }
 \details{
-Computes the longitudinal water surface profile of a
-  prismatic channel using the standard step method by solving the non-linear
-  ODE \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step
+Computes the longitudinal water surface profile of a prismatic
+  channel using the standard step method by solving the non-linear ODE
+  \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step
   method operates by stepping along the channel by a constant distance
   interval, starting from a cross-section where the flow depth is known
   (the control section). The flow depth is computed at the adjacent

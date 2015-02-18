@@ -34,7 +34,7 @@ The critical depth is the water depth at which a channel
   \eqn{y = y_c} when \deqn{\frac{dE}{dy} = 1 - \frac{Q^2}{gA^3}\frac{dA}{dy} = 0}.
 }
 \examples{
-critical_depth(250, 32.2, 2, 100, 0) # rectangular channel
-critical_depth(126, 9.81, 1, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
+critical_depth(250, 2, 32.2, 100, 0) # rectangular channel
+critical_depth(126, 1, 9.81, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 }
 

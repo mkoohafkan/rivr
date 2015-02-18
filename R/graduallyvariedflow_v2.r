@@ -33,9 +33,9 @@ NULL
 #'   \item{Sf}{Friction slope.}
 #'   \item{E}{Total energy.}
 #'   \item{Fr}{Froude Number.}
-#' @details Computes the longitudinal water surface profile of a 
-#'   prismatic channel using the standard step method by solving the non-linear 
-#'   ODE \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step 
+#' @details Computes the longitudinal water surface profile of a prismatic 
+#'   channel using the standard step method by solving the non-linear ODE 
+#'   \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step 
 #'   method operates by stepping along the channel by a constant distance 
 #'   interval, starting from a cross-section where the flow depth is known 
 #'   (the control section). The flow depth is computed at the adjacent 
@@ -43,7 +43,7 @@ NULL
 #'   used as the basis for computing flow depth at the next cross-section, i.e. 
 #'   the previous target section becomes the new control section for each step. 
 #'   A Newton-Raphson scheme is used each step to compute the flow depth and 
-#'   friction slope. Technically, the average friction slope of the control and 
+#'   friction slope. Technically, the average friction slope of the control and
 #'   target section is used to compute the flow depth at the target section.
 #' @examples
 #' \donttest{

@@ -127,7 +127,7 @@ double normal_depth(double So, double n, double Q, double yopt, double Cm,
     dy = ( pow(gp["A"], 5.0/3.0)/pow(gp["P"], 2.0/3.0) - n*Q/(Cm*sqrt(So)) ) / 
       ( gp["dAdy"]*(5.0/3.0)*pow(gp["A"]/gp["P"], 2.0/3.0) - 
       (2.0/3.0)*gp["dPdy"]*pow(gp["A"]/gp["P"], 5.0/3.0) );
-    yopt = yopt - dy;
+    yopt -= dy;
     i++;
   }
   return(yopt);  
@@ -150,8 +150,8 @@ double normal_depth(double So, double n, double Q, double yopt, double Cm,
 //' @param SS Channel sideslope [\eqn{L L^{-1}}].
 //' @return The critical depth \eqn{y_c} [\eqn{L}].
 //' @examples
-//' critical_depth(250, 32.2, 2, 100, 0) # rectangular channel
-//' critical_depth(126, 9.81, 1, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
+//' critical_depth(250, 2, 32.2, 100, 0) # rectangular channel
+//' critical_depth(126, 1, 9.81, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 //' @export
 // [[Rcpp::export]]
 double critical_depth(double Q, double yopt, double g, double B, double SS){
@@ -162,9 +162,10 @@ double critical_depth(double Q, double yopt, double g, double B, double SS){
   int i = 0;
   while((fabs(dy) > tol) & (i < maxit)){
     NumericVector gp = channel_geom(yopt, B, SS);
-    dy = (pow(gp["A"], 3.0)/gp["dAdy"] - Q*Q/g) / 
-      (3*pow(gp["A"], 2.0) - pow(gp["A"], 3.0)*gp["dTdy"]/gp["dAdy"]);
-    yopt = yopt - dy;
+    dy = (pow(gp["A"], 3.0)/gp["dAdy"] - pow(Q, 2.0)/g) / 
+      (3.0*pow(gp["A"], 2.0) - pow(gp["A"], 3.0)*gp["dTdy"] / 
+      pow(gp["dAdy"], 2.0));
+    yopt -= dy;
     i++;
   }
   return(yopt);  
