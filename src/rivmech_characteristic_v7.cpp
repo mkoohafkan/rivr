@@ -16,6 +16,10 @@ using namespace Rcpp;
 //'   acceleration and \eqn{D_H} is the hydraulic depth. The Froude number is related
 //'   to the energy state of the flow and can be used to identify flows as
 //'   either supercritical (\eqn{Fr < 1}) or subcritical (\eqn{Fr > 1}).
+//' @examples
+//' froude(250, 32.2, 171, 1.71) # subcritical flow
+//' froude(250, 32.2, 57.9, 0.579) # critical flow
+//' froude(250, 32.2, 45, 0.45) # supercritical flow
 //' @export
 // [[Rcpp::export]]
 double froude(double Q, double g, double A, double DH){

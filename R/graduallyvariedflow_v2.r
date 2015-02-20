@@ -46,12 +46,10 @@ NULL
 #'   friction slope. Technically, the average friction slope of the control and
 #'   target section is used to compute the flow depth at the target section.
 #' @examples
-#' \donttest{
 #' # example M1 profile
 #' compute_profile(0.001, 0.045, 250, 2.7, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
 #' # example M2 profile
 #' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
-#' }
 #' @export
 compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z=0, x=0, stepdist, totaldist){
   stepsize = stepdist
