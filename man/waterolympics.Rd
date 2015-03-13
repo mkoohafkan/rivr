@@ -29,5 +29,11 @@ under the following conditions:
     \deqn{Q(t >= 9000) = 250}
 }
 }
+\references{
+Sobey, Rodney. "H11: Hydrograph Routing."
+  Review of One-Dimensional Hydrodynamic and Transport Models. Bay-Delta
+  Modeling Forum, 15 June 2001. Web. 13 Mar. 2015.
+  <http://www.cwemf.org/1-DReview/>.
+}
 \keyword{datasets}
 

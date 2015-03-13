@@ -24,6 +24,10 @@
 #' @name waterolympics
 #' @usage data(waterolympics)
 #' @format A data frame with 40 rows and 3 variables
+#' @references Sobey, Rodney. "H11: Hydrograph Routing." 
+#'   Review of One-Dimensional Hydrodynamic and Transport Models. Bay-Delta 
+#'   Modeling Forum, 15 June 2001. Web. 13 Mar. 2015. 
+#'   <http://www.cwemf.org/1-DReview/>.
 NULL
 
 
