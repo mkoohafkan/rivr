@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mkoohafkan/rivr.svg)](https://travis-ci.org/mkoohafkan/rivr)
+
 rivr: An R package for Open Channel Hydraulics
 ==============================================
 
