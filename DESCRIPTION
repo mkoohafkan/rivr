@@ -1,7 +1,7 @@
 Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
-Version: 0.9.1
+Version: 0.9.2
 Date: 2015-01-10
 Author: Michael C Koohafkan [aut, cre]
 Maintainer: Michael C Koohafkan <michael.koohafkan@gmail.com>
