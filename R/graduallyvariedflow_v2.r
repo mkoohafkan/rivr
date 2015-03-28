@@ -2,12 +2,13 @@
 #' instructors of undergraduate courses in open channel hydraulics. 
 #' Functions are provided for computing normal and critical depths, 
 #' steady (e.g. backwater curves) and unsteady (flood wave routing) 
-#' flow computations for prismatic trapezoidal channels of arbitrary 
-#' geometry.
+#' flow computations for prismatic trapezoidal channels. See the vignette
+#' to get started.
 #' @name rivr-package
 #' @docType package
 #' @useDynLib rivr
 #' @importFrom Rcpp evalCpp
+#' @importFrom reshape2 melt
 NULL
 
 #' @title Gradually-varied flow profiles
@@ -20,8 +21,8 @@ NULL
 #' @param g Gravitational acceleration [\eqn{L T^{-2}}].
 #' @param B Channel bottom width [\eqn{L}].
 #' @param SS Channel sideslope [\eqn{L L^{-1}}].
-#' @param z Elevation reference datum at control section [\eqn{L}]. Default is 0.
-#' @param x Distance reference at control section [\eqn{L}]. Default is 0.
+#' @param z0 Elevation reference datum at control section [\eqn{L}]. Default is 0.
+#' @param x0 Distance reference at control section [\eqn{L}]. Default is 0.
 #' @param stepdist The spatial interval used in the Standard step method [\eqn{L}].
 #' @param totaldist The total distance upstream (or downstream) to compute the profile [\eqn{L}].
 #' @return data.frame with columns:
@@ -35,7 +36,7 @@ NULL
 #'   \item{Fr}{Froude Number.}
 #' @details Computes the longitudinal water surface profile of a prismatic 
 #'   channel using the standard step method by solving the non-linear ODE 
-#'   \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step 
+#'   \deqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}} The standard-step 
 #'   method operates by stepping along the channel by a constant distance 
 #'   interval, starting from a cross-section where the flow depth is known 
 #'   (the control section). The flow depth is computed at the adjacent 
@@ -51,7 +52,7 @@ NULL
 #' # example M2 profile
 #' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
 #' @export
-compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z=0, x=0, stepdist, totaldist){
+compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, totaldist){
   stepsize = stepdist
   yc = critical_depth(Q, y0, g, B, SS)
   if(yc < y0){
@@ -67,7 +68,7 @@ compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z=0, x=0, stepdist, total
     stop('flow at control section is critical. Starting flow depth must ',
       'be greater than or less than critical depth.')
   }
-  res = as.data.frame(loop_step(So, n, Q, Cm, g, y0, B, SS, z, x, stepsize, totaldist))
+  res = as.data.frame(loop_step(So, n, Q, Cm, g, y0, B, SS, z0, x0, stepsize, totaldist))
   names(res) = c("x", "z", "y", "v", "A", "Sf", "E", "Fr")
   return(res)
 }

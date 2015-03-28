@@ -4,7 +4,7 @@
 \alias{compute_profile}
 \title{Gradually-varied flow profiles}
 \usage{
-compute_profile(So, n, Q, y0, Cm, g, B, SS, z = 0, x = 0, stepdist,
+compute_profile(So, n, Q, y0, Cm, g, B, SS, z0 = 0, x0 = 0, stepdist,
   totaldist)
 }
 \arguments{
@@ -24,9 +24,9 @@ compute_profile(So, n, Q, y0, Cm, g, B, SS, z = 0, x = 0, stepdist,
 
 \item{SS}{Channel sideslope [\eqn{L L^{-1}}].}
 
-\item{z}{Elevation reference datum at control section [\eqn{L}]. Default is 0.}
+\item{z0}{Elevation reference datum at control section [\eqn{L}]. Default is 0.}
 
-\item{x}{Distance reference at control section [\eqn{L}]. Default is 0.}
+\item{x0}{Distance reference at control section [\eqn{L}]. Default is 0.}
 
 \item{stepdist}{The spatial interval used in the Standard step method [\eqn{L}].}
 
@@ -49,7 +49,7 @@ Compute the gradually-varied flow profile of a prismatic channel.
 \details{
 Computes the longitudinal water surface profile of a prismatic
   channel using the standard step method by solving the non-linear ODE
-  \eqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}}. The standard-step
+  \deqn{\frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}} The standard-step
   method operates by stepping along the channel by a constant distance
   interval, starting from a cross-section where the flow depth is known
   (the control section). The flow depth is computed at the adjacent

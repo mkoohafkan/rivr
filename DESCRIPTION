@@ -14,7 +14,7 @@ BugReports: https://github.com/mkoohafkan/rivr/issues
 License: GPL (>= 3)
 Depends: R (>= 3.1.2)
 Imports: Rcpp (>= 0.11.3), reshape2 (>= 1.4)
-Suggests: dplyr (>= 0.3), ggplot2 (>= 1.0), roxygen2 (>= 4.1), knitr (>= 1.8)
+Suggests: dplyr, ggplot2, knitr
 LinkingTo: Rcpp
 LazyData: true
 VignetteBuilder: knitr

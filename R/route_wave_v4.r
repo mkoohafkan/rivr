@@ -160,8 +160,8 @@ route_wave = function(So, n, Cm, g, B, SS,
   rownames(mpmat) = as.integer(seq(nrow(mpmat)))
   colnames(mtmat) = as.integer(seq(ncol(mtmat)))
   rownames(mtmat) = as.integer(monitor.times)
-  mpdf = reshape2::melt(mpmat)
-  mtdf = reshape2::melt(mtmat)
+  mpdf = melt(mpmat)
+  mtdf = melt(mtmat)
   # add extra data
   mpnames = c("mpdepth", "mpvelocity", "mparea")
   mtnames= c("mtdepth", "mtvelocity", "mtarea")
@@ -170,14 +170,14 @@ route_wave = function(So, n, Cm, g, B, SS,
     thismat = reslist[[n]]
     colnames(thismat) = as.integer(monitor.nodes)
     rownames(thismat) = as.integer(seq(nrow(thismat)))
-    thisdf = reshape2::melt(thismat)
+    thisdf = melt(thismat)
     mpdf = cbind(mpdf, thisdf[, 3])	
   }
   for(n in mtnames){
     thismat = reslist[[n]]
     colnames(thismat) = as.integer(seq(ncol(thismat)))
     rownames(thismat) = as.integer(monitor.times)
-    thisdf = reshape2::melt(thismat)
+    thisdf = melt(thismat)
     mtdf = cbind(mtdf, thisdf[, 3])	
   }
   names(mpdf) = c("timestep", "node", "flow", addnames)  

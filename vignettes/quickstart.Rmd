@@ -98,7 +98,7 @@ width = 100; slope = 0.001; sideslope = 0
 
 numnodes = 301; xresolution = 250; tresolution = 10; 
 times = seq(0, 30000, by = tresolution)
-wave = floodwave = ifelse(times >= 9000, baseflow,
+wave = ifelse(times >= 9000, baseflow,
   baseflow + (750/pi)*(1 - cos(pi*times/(60*75))))
 downstream = rep(-1, length(wave))
 

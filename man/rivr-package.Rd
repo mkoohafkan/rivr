@@ -7,14 +7,14 @@
 instructors of undergraduate courses in open channel hydraulics.
 Functions are provided for computing normal and critical depths,
 steady (e.g. backwater curves) and unsteady (flood wave routing)
-flow computations for prismatic trapezoidal channels of arbitrary
-geometry.}
+flow computations for prismatic trapezoidal channels. See the vignette
+to get started.}
 \description{
 This package is designed as an educational tool for students and
 instructors of undergraduate courses in open channel hydraulics.
 Functions are provided for computing normal and critical depths,
 steady (e.g. backwater curves) and unsteady (flood wave routing)
-flow computations for prismatic trapezoidal channels of arbitrary
-geometry.
+flow computations for prismatic trapezoidal channels. See the vignette
+to get started.
 }
 

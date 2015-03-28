@@ -11,7 +11,7 @@
 #' @details The Froude number is a dimensionless measure of bulk flow 
 #'   characteristics that represents the relative importance of inertial 
 #'   forces and gravitational forces. For open channel flow, the Froude 
-#'   number of open channel flow is defined as \deqn{Fr = \frac{v}{\sqrt{gD_H}}}, 
+#'   number of open channel flow is defined as \deqn{Fr = \frac{v}{\sqrt{gD_H}}} 
 #'   where \eqn{v = \frac{Q}{A}} is the flow velocity, \eqn{g} is the gravitational 
 #'   acceleration and \eqn{D_H} is the hydraulic depth. The Froude number is related
 #'   to the energy state of the flow and can be used to identify flows as
