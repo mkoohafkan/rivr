@@ -67,7 +67,7 @@ are \code{"yQ"} and \code{"yy"}.}
 }
 \value{
 data.frame with columns:
-  \item{timestep}{Time step.}
+  \item{step}{Time step.}
   \item{node}{Node index.}
   \item{time}{Time since start.}
   \item{distance}{Downstream distance.}

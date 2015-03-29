@@ -71,7 +71,7 @@ NULL
 #'   while the downstream boundary is assumed to be depth [\eqn{L}]. Other possibilities
 #'   are \code{"yQ"} and \code{"yy"}. 
 #' @return data.frame with columns:
-#'   \item{timestep}{Time step.}
+#'   \item{step}{Time step.}
 #'   \item{node}{Node index.}
 #'   \item{time}{Time since start.}
 #'   \item{distance}{Downstream distance.}
@@ -180,14 +180,14 @@ route_wave = function(So, n, Cm, g, B, SS,
     thisdf = melt(thismat)
     mtdf = cbind(mtdf, thisdf[, 3])	
   }
-  names(mpdf) = c("timestep", "node", "flow", addnames)  
-  names(mtdf) = c("timestep", "node", "flow", addnames)  
+  names(mpdf) = c("step", "node", "flow", addnames)  
+  names(mtdf) = c("step", "node", "flow", addnames)  
   mpdf['monitor.type'] = "node"
   mtdf['monitor.type'] = "timestep"
   allres = rbind(mpdf, mtdf)
   allres["distance"] = (allres$node - 1)*spacestep
-  allres["time"] = (allres$timestep - 1)*timestep
-  retnames = c("timestep", "node", "time", "distance", "flow", 
+  allres["time"] = (allres$step - 1)*timestep
+  retnames = c("step", "node", "time", "distance", "flow", 
     addnames, "monitor.type")
   return(allres[retnames])
 } 
