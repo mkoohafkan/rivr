@@ -11,6 +11,49 @@
 #' @importFrom reshape2 melt
 NULL
 
+check_profile = function(So, n, Q, g, Cm, B, SS, y0, stepdist){
+  yc = critical_depth(Q, y0, g, B, SS)
+  yn = normal_depth(So, n, Q, y0, Cm, B, SS)
+  if(So < 0){ # adverse slope
+    if(y0 > yc){
+      message("A2 profile specified. Computing upstream profile")
+      return(-abs(stepdist))
+    } else
+      stop("A3 profile cannot be computed (rapidly-varied flow)")
+  } else if (So == 0){ # horizontal slope
+    if(y0 > yc){
+    message("H2 profile specified. Computing upstream profile")
+    return(-abs(stepdist))
+    } else
+      stop("H3 profile cannot be computed (rapidly-varied flow)")
+  } else if(yn > yc){ # Mild slope
+    if(y0 > yn)
+      message("M1 profile specified. Computing upstream profile")
+    else if(y0 > yc)
+      message("M2 profile specified. Computing upstream profile")
+    else
+      stop("M3 profile cannot be computed (rapidly-varied flow)")
+	return(-abs(stepdist))
+  } else if(yc > yn){ # steep slope
+    if(y0 > yc)
+      stop("S1 profile cannot be computed (rapidly-varied flow)")
+    else if(yn > y0)
+      message("S3 profile specified. Computing downstream profile")
+    else
+      message("S2 profile specified. Computing downstream profile")
+    return(abs(stepdist))    
+  } else { # critical profile
+    if(y0 > yc){
+      message("C1 profile specified. Computing upstream profile")    
+      return(-abs(stepdist))
+    }
+    else {
+      message("C3 profile specified. Computing downstream profile")
+      return(abs(stepdist))    
+    }
+  }
+}
+
 #' @title Gradually-varied flow profiles
 #' @description Compute the gradually-varied flow profile of a prismatic channel.
 #' @param So Channel slope [\eqn{L L^{-1}}].
@@ -54,20 +97,8 @@ NULL
 #' @export
 compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, totaldist){
   stepsize = stepdist
-  yc = critical_depth(Q, y0, g, B, SS)
-  if(yc < y0){
-    message('flow at control section is subcritical. ', 
-	  'Upstream profile will be computed.')
-	stepsize = -abs(stepdist)
-  } else if(yc > y0) {
-    message('flow at control section is supercritical. ',
-	  'Downstream profile will be computed.')
-	stepsize = abs(stepdist)
-  }
-  else {
-    stop('flow at control section is critical. Starting flow depth must ',
-      'be greater than or less than critical depth.')
-  }
+  # determine profile type
+  stepsize = check_profile(So, n, Q, g, Cm, B, SS, y0, stepdist)
   res = as.data.frame(loop_step(So, n, Q, Cm, g, y0, B, SS, z0, x0, stepsize, totaldist))
   names(res) = c("x", "z", "y", "v", "A", "Sf", "E", "Fr")
   return(res)
