@@ -9,6 +9,14 @@ for computing flow and channel geometry, normal and critical depths,
 gradually-varied water-surface profiles (e.g. backwater curves) and unsteady 
 flow (e.g. flood wave routing).
 
+UPDATE 4/2/2015
+---------------
+
+Version 0.9.2 now on CRAN! This version improves error messages and clarifies 
+some of the documentation.
+
+
+
 UPDATE 2/22/2015
 ----------------
 
