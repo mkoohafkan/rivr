@@ -231,6 +231,10 @@ NumericMatrix loop_step(double So, double n, double Q, double Cm,
   NumericMatrix pd(numsteps, 8);  
   pd(0, _) = standard_step(So, n, Q, Cm, g, y, B, SS, z, x, 0);
   for(int i = 1; i < numsteps; i++){
+    // check if user has cancelled
+    if(i % 10000 == 0){
+      checkUserInterrupt() ;
+    }   
     pd(i, _) = standard_step(So, n, Q, Cm, g, pd(i-1, 2), B, SS, pd(i-1, 1), pd(i-1, 0), stepdist);
   }
   return(pd);
@@ -295,6 +299,10 @@ List kinematic_wave(double So, double n, double Cm, double g, double B,
     mpA(k, 0) = newarea[0];
     // loop through space
     for(int i = 1; i < numnodes; i++){
+      // check if user has cancelled
+      if(i*k % 10000 == 0){
+        checkUserInterrupt() ;
+      }
       // compute flow
       newflow[i] = newflow[i-1] - (newarea[i-1] - oldarea[i-1])*spacestep/timestep;
       // compute depth
@@ -506,7 +514,11 @@ List characteristic_wave(double So, double n, double Cm, double g, double B,
 	NumericVector areastargrad(numnodes);
 	NumericVector flowstargrad(numnodes);	
 	// loop through space: predictor
-    for(int i = 1; i < numnodes; i++){	
+    for(int i = 1; i < numnodes; i++){
+      // check if user has cancelled
+      if(i*k % 3000 == 0){
+        checkUserInterrupt() ;
+      }        
 	  flowstargrad[i] = - timestep*(oldF[i] - oldF[i-1])/spacestep - 
         timestep*oldS[i];
       flowstar[i] = oldflow[i] + flowstargrad[i];
@@ -756,7 +768,11 @@ List diffusive_wave(double So, double n, double Cm, double g, double B,
     mpV(k, 0) = newvelocity[0];
     mpA(k, 0) = newarea[0];	
     // loop through space
-    for(int i = 1; i < numnodes - 1; i++){	  
+    for(int i = 1; i < numnodes - 1; i++){
+      // check if user has cancelled
+      if(i*k % 5000 == 0){
+        checkUserInterrupt() ;
+      }        
 	  double Astar = 0.5*(oldarea[i+1] + oldarea[i-1]);
       double flowstar = 0.5*(oldflow[i+1] + oldflow[i-1]);
 	  double Sstar = 0.5*(oldS[i+1] + oldS[i-1]);
