@@ -10,7 +10,6 @@
 #' @docType package
 #' @useDynLib rivr
 #' @importFrom Rcpp evalCpp
-#' @importFrom reshape2 melt
 NULL
 
 check_profile = function(So, n, Q, g, Cm, B, SS, y0, stepdist){

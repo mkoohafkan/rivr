@@ -154,14 +154,20 @@ route_wave = function(So, n, Cm, g, B, SS,
     }
   }
   # extract monitor data
+  stackmat = function(m){  
+    d = cbind(rid = rep(rownames(m), ncol(m)), stack(as.data.frame(m))[2:1])
+    d[[1]] = as.numeric(levels(d$rid))[d$rid]
+    d[[2]] = as.numeric(levels(d$ind))[d$ind]
+    d
+  }
   mpmat = reslist[["monitorpoints"]]
   mtmat = reslist[["monitortimes"]]
   colnames(mpmat) = as.integer(monitor.nodes)
   rownames(mpmat) = as.integer(seq(nrow(mpmat)))
   colnames(mtmat) = as.integer(seq(ncol(mtmat)))
   rownames(mtmat) = as.integer(monitor.times)
-  mpdf = melt(mpmat)
-  mtdf = melt(mtmat)
+  mpdf = stackmat(mpmat)
+  mtdf = stackmat(mtmat)
   # add extra data
   mpnames = c("mpdepth", "mpvelocity", "mparea")
   mtnames= c("mtdepth", "mtvelocity", "mtarea")
@@ -170,14 +176,14 @@ route_wave = function(So, n, Cm, g, B, SS,
     thismat = reslist[[n]]
     colnames(thismat) = as.integer(monitor.nodes)
     rownames(thismat) = as.integer(seq(nrow(thismat)))
-    thisdf = melt(thismat)
+    thisdf = stackmat(thismat)
     mpdf = cbind(mpdf, thisdf[, 3])	
   }
   for(n in mtnames){
     thismat = reslist[[n]]
     colnames(thismat) = as.integer(seq(ncol(thismat)))
     rownames(thismat) = as.integer(monitor.times)
-    thisdf = melt(thismat)
+    thisdf = stackmat(thismat)
     mtdf = cbind(mtdf, thisdf[, 3])	
   }
   names(mpdf) = c("step", "node", "flow", addnames)  
