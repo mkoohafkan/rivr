@@ -12,47 +12,50 @@
 #' @importFrom Rcpp evalCpp
 NULL
 
-check_profile = function(So, n, Q, g, Cm, B, SS, y0, stepdist){
+get_profile = function(So, n, Q, g, Cm, B, SS, y0){
   yc = critical_depth(Q, y0, g, B, SS)
   yn = normal_depth(So, n, Q, y0, Cm, B, SS)
-  if(So < 0){ # adverse slope
-    if(y0 > yc){
-      message("A2 profile specified. Computing upstream profile")
-      return(-abs(stepdist))
-    } else
-      stop("A3 profile cannot be computed (rapidly-varied flow)")
-  } else if (So == 0){ # horizontal slope
-    if(y0 > yc){
-    message("H2 profile specified. Computing upstream profile")
-    return(-abs(stepdist))
-    } else
-      stop("H3 profile cannot be computed (rapidly-varied flow)")
-  } else if(yn > yc){ # Mild slope
-    if(y0 > yn)
-      message("M1 profile specified. Computing upstream profile")
-    else if(y0 > yc)
-      message("M2 profile specified. Computing upstream profile")
+  if(So < 0) # adverse slope
+    if (y0 > yc)
+      return("A2")
     else
-      stop("M3 profile cannot be computed (rapidly-varied flow)")
-	return(-abs(stepdist))
-  } else if(yc > yn){ # steep slope
+      return("A3")
+  else if (So == 0) # horizontal slope
     if(y0 > yc)
-      stop("S1 profile cannot be computed (rapidly-varied flow)")
-    else if(yn > y0)
-      message("S3 profile specified. Computing downstream profile")
+      return("H2")
     else
-      message("S2 profile specified. Computing downstream profile")
-    return(abs(stepdist))    
-  } else { # critical profile
-    if(y0 > yc){
-      message("C1 profile specified. Computing upstream profile")    
-      return(-abs(stepdist))
-    }
-    else {
-      message("C3 profile specified. Computing downstream profile")
-      return(abs(stepdist))    
-    }
-  }
+      return("H3")
+  else if (yn > yc) # Mild slope
+    if(y0 > yn)
+      return("M1")
+    else if (y0 > yc)
+      return("M2")
+    else
+      return("M3")
+  else if (yc > yn) # steep slope
+    if (y0 > yc)
+      return("S1")
+    else if (yn > y0)
+      return("S3")
+    else
+      return("S2")    
+  else # critical profile
+    if (y0 > yc)
+      return("C1")
+    else
+      return("C3")    
+}
+
+check_profile = function(p){
+  if(any(p == c("S1", "M3", "H3", "A3"))){
+    stop(p, " profile cannot be computed (rapidly-varied flow)")  
+  } else if(any(p == c("A2", "H2", "M1", "M2", "C1"))){
+    message(p, " profile specified. Computing upstream profile")
+    function(x) -abs(x)
+  } else {
+    message(p, " profile specified. Computing downstream profile")
+    function(x) abs(x)
+  } 
 }
 
 #' @title Gradually-varied flow profiles
@@ -97,10 +100,18 @@ check_profile = function(So, n, Q, g, Cm, B, SS, y0, stepdist){
 #' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
 #' @export
 compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, totaldist){
-  stepsize = stepdist
   # determine profile type
-  stepsize = check_profile(So, n, Q, g, Cm, B, SS, y0, stepdist)
+  proftype = get_profile(So, n, Q, g, Cm, B, SS, y0)
+  stepsize = check_profile(proftype)(stepdist)
   res = as.data.frame(loop_step(So, n, Q, Cm, g, y0, B, SS, z0, x0, stepsize, totaldist))
-  names(res) = c("x", "z", "y", "v", "A", "Sf", "E", "Fr")
-  return(res)
+  names(res) = c("x", "z", "y", "v", "A", "Sf", "E", "Fr")  
+  retobj = res
+  class(retobj) = c("rivr", "data.frame")  
+  attr(retobj, "call") = match.call()
+  attr(retobj, "simtype") = "gvf"
+  attr(retobj, "proftype") = proftype
+  attr(retobj, "modspec") = list(delta.x = stepdist, channel.length = totaldist,
+    normal.depth = normal_depth(So, n, Q, y0, Cm, B, SS))
+  attr(retobj, "channel.geometry") = list(So = So, n = n, B = B, SS = SS)
+  return(retobj)
 }

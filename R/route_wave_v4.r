@@ -139,6 +139,7 @@ route_wave = function(So, n, Cm, g, B, SS,
   if(engine == 'Kinematic'){
     reslist = kinematic_wave(So, n, Cm, g, B, SS, numnodes, boundary.condition,
       initial.condition, timestep, spacestep, monitor.nodes - 1L, monitor.times - 1L)
+    scheme = NULL
   } else {
     scheme = match.arg(scheme, c("MacCormack", "Lax"))
     if(scheme == "MacCormack"){
@@ -172,15 +173,15 @@ route_wave = function(So, n, Cm, g, B, SS,
   mpnames = c("mpdepth", "mpvelocity", "mparea")
   mtnames= c("mtdepth", "mtvelocity", "mtarea")
   addnames = c("depth", "velocity", "area")
-  for(n in mpnames){
-    thismat = reslist[[n]]
+  for(nm in mpnames){
+    thismat = reslist[[nm]]
     colnames(thismat) = as.integer(monitor.nodes)
     rownames(thismat) = as.integer(seq(nrow(thismat)))
     thisdf = stackmat(thismat)
     mpdf = cbind(mpdf, thisdf[, 3])	
   }
-  for(n in mtnames){
-    thismat = reslist[[n]]
+  for(nm in mtnames){
+    thismat = reslist[[nm]]
     colnames(thismat) = as.integer(seq(ncol(thismat)))
     rownames(thismat) = as.integer(monitor.times)
     thisdf = stackmat(thismat)
@@ -194,6 +195,15 @@ route_wave = function(So, n, Cm, g, B, SS,
   allres["distance"] = (allres$node - 1)*spacestep
   allres["time"] = (allres$step - 1)*timestep
   retnames = c("step", "node", "time", "distance", "flow", 
-    addnames, "monitor.type")
-  return(allres[retnames])
+    addnames, "monitor.type")  
+  retobj = allres[retnames]
+  class(retobj) = c("rivr", "data.frame")  
+  attr(retobj, "call") = match.call()
+  attr(retobj, "simtype") = "usf"
+  attr(retobj, "modspec") = list(dx = spacestep, dt = timestep, 
+    nodes.monitored = monitor.nodes, 
+    steps.monitored = monitor.times)
+  attr(retobj, "engine") = paste(c(engine, scheme), collapse = ":")
+  attr(retobj, "channel.geometry") = list(So = So, n = n, B = B, SS = SS)
+  return(retobj)
 } 
