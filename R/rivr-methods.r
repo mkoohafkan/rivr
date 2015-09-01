@@ -69,6 +69,7 @@ print.rivr = function(x, ...){
     give.head = FALSE)
   cat("\nData:\n")
   str(unclass(x), give.attr = FALSE, comp.str = " ", no.list = TRUE)  
+  invisible(NULL)
 }
 
 #' @importFrom graphics plot
@@ -106,4 +107,5 @@ plot.rivr = function(x, ...){
     })
   }  
   par(mfrow = c(1, 1))
+  invisible(NULL)
 }
