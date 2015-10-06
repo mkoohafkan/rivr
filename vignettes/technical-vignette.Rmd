@@ -339,7 +339,7 @@ high accuracy for considerably coarser spatial and temporal resolutions
 compared to the Lax diffusive scheme. The scheme consists of a 
 backwards-looking predictor step followed by a forward-looking corrector step.
 The intermediate values calculated in the predictor step are used to develop 
-new intermediate values in the corrector step, and these predictions are 
+new intermediate values in the corrector step, and these calculations are 
 averaged to obtain the final value. The predictor step computes the 
 intermediate values at an internal node $i$ as
 $$
@@ -349,7 +349,7 @@ $$
 A^*_i = A_i^k - \frac{\Delta t}{\Delta x}\left( Q_i^k - Q_{i-1}^k \right)
 $$
 with intermediate values of $F$ and $S$ ($F^*$ and $S^*$) computed from these 
-results. On the predictor step, new values for $Q$ and $A$ are computed as 
+results. On the corrector step, new values for $Q$ and $A$ are computed as 
 $$
 Q_i^{**} = Q_i^{k} - \frac{\Delta t}{\Delta x}\left( F^*_{i + 1} - F^*_{i} \right) - S_i^* \Delta t
 $$

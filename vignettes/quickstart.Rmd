@@ -18,6 +18,19 @@ equations using finite-differencing methods. Outputs are formatted for
 manipulation with `dplyr` and visualization with `ggplot2`. This vignette 
 provides a brief introduction to the main functions and example applications.
 
+Class methods
+-------------
+
+The `rivr` package defines a new class `rivr`, which is essentially an 
+extension of the `data.frame` class with additional atributes. The
+methods are defined for class `rivr`:
+
+  - `head` 
+  - `tail`
+  - `print`
+  - `summary`
+  - `plot`
+
 Computing normal and critical depth
 -----------------------------------
 
@@ -74,11 +87,14 @@ gvf = compute_profile(slope, mannings, flow, y0 = 2.7, Cm, gravity, width,
   sideslope, stepdist=50, totaldist=3000)
 ```
 
-The output is formatted for easy visualization with `ggplot2`.
+While a `plot` method is defined for `rivr` objects, the output is also 
+formatted for easy visualization with `ggplot2`.
 
 ```{r plot-gvf}
 require(ggplot2)
 ggplot(gvf, aes(x = x, y = y + z)) + geom_line(color='blue')
+# or try the default plot method
+# plot(gvf)
 ```
 
 Unsteady flow
@@ -109,7 +125,9 @@ uf = route_wave(slope, mannings, Cm, gravity, width, sideslope,
   mn, mt, "Dynamic", "MacCormack", "QQ") 
 ```
 
-Accessing the unsteady flow outputs is greatly simplified by using `dplyr`.
+Methods are defined for printing and summarizing `rivr` objects. Accessing the 
+unsteady flow outputs for in-depth analysis is greatly simplified by using 
+`dplyr`.
 
 ```{r uf-access}
 require(dplyr)
@@ -117,4 +135,6 @@ uf.nodes = filter(uf, monitor.type == "node")
 ggplot(uf.nodes, aes(x=time, y=flow, color=factor(distance))) + geom_line()
 uf.times = filter(uf, monitor.type == "timestep")
 ggplot(uf.times, aes(x=distance, y=flow, color=factor(time))) + geom_line()
+# or try the default plot method
+# plot(uf)
 ```
