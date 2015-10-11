@@ -427,6 +427,6 @@ $$
 $$
 Note that if $Q_1^k = 0$ the flow depth $y_1^k$ can be solved for directly, and
 if depth is supplied then the flow can be solved for directly. The solution 
-method for the downstream boundary is analogous, noting that the signs of the 
+method for the downstream boundary is analogous, noting that the sign of the 
 second term in $f(y^k_{N})$ and the corresponding term in its derivative are 
 reversed.
