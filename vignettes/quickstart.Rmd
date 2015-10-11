@@ -22,7 +22,7 @@ Class methods
 -------------
 
 The `rivr` package defines a new class `rivr`, which is essentially an 
-extension of the `data.frame` class with additional atributes. The
+extension of the `data.frame` class with additional atributes. The following
 methods are defined for class `rivr`:
 
   - `head` 
@@ -30,6 +30,8 @@ methods are defined for class `rivr`:
   - `print`
   - `summary`
   - `plot`
+
+   
 
 Computing normal and critical depth
 -----------------------------------
