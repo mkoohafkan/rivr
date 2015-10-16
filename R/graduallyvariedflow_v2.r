@@ -98,6 +98,10 @@ check_profile = function(p){
 #' compute_profile(0.001, 0.045, 250, 2.7, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
 #' # example M2 profile
 #' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
+#' # example S2 profile
+#' compute_profile(0.1, 0.04, 250, 2.0, 1.486, 32.2, 10, 0, stepdist=0.1, totaldist=3000)
+#' # example S3 profile
+#' compute_profile(0.1, 0.04, 250, 1.0, 1.486, 32.2, 10, 0, stepdist=0.1, totaldist=3000)
 #' @export
 compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, totaldist){
   # determine profile type
@@ -111,7 +115,8 @@ compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, tot
   attr(retobj, "simtype") = "gvf"
   attr(retobj, "proftype") = proftype
   attr(retobj, "modspec") = list(delta.x = stepdist, channel.length = totaldist,
-    normal.depth = normal_depth(So, n, Q, y0, Cm, B, SS))
+    normal.depth = normal_depth(So, n, Q, y0, Cm, B, SS),
+    critical.depth = critical_depth(Q, y0, g, B, SS))
   attr(retobj, "channel.geometry") = list(So = So, n = n, B = B, SS = SS)
   return(retobj)
 }

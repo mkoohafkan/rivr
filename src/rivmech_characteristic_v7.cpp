@@ -203,11 +203,11 @@ NumericVector standard_step(double So, double n, double Q, double Cm, double g,
 	double dy = 9999;
     while((fabs(dy) > tol) & (j < maxit)){
 	  NumericVector geomopt = channel_geom(ynew, B, SS);
-	  dy = (ynew + 0.5*pow(Q/geomopt["A"], 2.0)/g + znew - E - 
-	    Sfbar*fabs(stepdist)) / (1 - geomopt["dAdy"]*Q*Q / 
-		(g*pow(geomopt["A"], 3.0)) + 
-		fabs(stepdist)*(Sfbar*geomopt["dAdy"]/geomopt["A"] + 
-		(2.0/3.0)*Sfbar*geomopt["dRdy"]/geomopt["R"]));
+	  dy = (ynew + 0.5*pow(Q/geomopt["A"], 2.0)/g + znew - E + 
+	    Sfbar*(xnew - x)) / (1 - geomopt["dAdy"]*Q*Q / 
+		(g*pow(geomopt["A"], 3.0)) - 
+		(xnew - x)*(Sfguess*geomopt["dAdy"]/geomopt["A"] + 
+		(2.0/3.0)*Sfguess*geomopt["dRdy"]/geomopt["R"]));
       ynew -= dy;
       j++;
     }
@@ -229,7 +229,16 @@ NumericMatrix loop_step(double So, double n, double Q, double Cm,
   int numsteps = totaldist/fabs(stepdist) + 1;
   // columns are x, z, y, v, A, Sf, E, Fr
   NumericMatrix pd(numsteps, 8);  
-  pd(0, _) = standard_step(So, n, Q, Cm, g, y, B, SS, z, x, 0);
+  // assign directly
+  pd(0,0) = x;
+  pd(0,1) = z;
+  pd(0,2) = y;
+  NumericVector gp = channel_geom(y, B, SS);
+  pd(0,3) = Q/gp["A"];
+  pd(0,4) = gp["A"];
+  pd(0,5) = pow(Q/conveyance(n, gp["A"], gp["R"], Cm), 2.0);
+  pd(0,6) = y + z + 0.5*pow(Q/gp["A"], 2.0)/g;
+  pd(0,7) = froude(Q, g, gp["A"], gp["DH"]);
   for(int i = 1; i < numsteps; i++){
     // check if user has cancelled
     if(i % 10000 == 0){

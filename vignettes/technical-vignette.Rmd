@@ -206,7 +206,11 @@ where
 $$
 \frac{df}{dy_2} = 1 - \frac{Q^2}{gA_2^3}\frac{dA_2}{dy_2} + \frac{1}{2}\left(x_2 - x_1\right) \frac{d{S_f}_2}{dy_2}
 $$
-and $\frac{dA}{dy}$ and $\frac{dS_f}{dy}$ are as defined previously. Once the 
+and
+$$
+\frac{d{S_f}_2}{dy} = -2\left(\frac{{S_f}_2}{A} \frac{dA}{dy} + \frac{2}{3} \frac{{S_f}_2}{R} \frac{dR}{dy} \right)
+$$
+Once the 
 flow depth at the target section is found, the target section becomes the new 
 control section and the flow depth at the next target section is computed, with
 the algorithm "stepping" up or down the channel to a specified distance from 
