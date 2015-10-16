@@ -116,6 +116,7 @@ NULL
 #' require(dplyr)
 #' filter(lax, monitor.type == "node", node == 151)
 #' }
+#' @importFrom utils stack
 #' @export
 route_wave = function(So, n, Cm, g, B, SS, 
   initial.condition, boundary.condition, downstream.condition, 
