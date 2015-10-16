@@ -2,7 +2,7 @@ Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
 Version: 1.1
-Date: 2015-10-11
+Date: 2015-10-15
 Author: Michael C Koohafkan [aut, cre]
 Maintainer: Michael C Koohafkan <michael.koohafkan@gmail.com>
 Description: A tool for undergraduate and graduate courses in open-channel hydraulics.
