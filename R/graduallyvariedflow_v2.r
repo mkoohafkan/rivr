@@ -95,13 +95,13 @@ check_profile = function(p){
 #'   target section is used to compute the flow depth at the target section.
 #' @examples
 #' # example M1 profile
-#' compute_profile(0.001, 0.045, 250, 2.7, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
+#' compute_profile(0.001, 0.045, 250, 2.7, 1.486, 32.2, 100, 0, stepdist = 10, totaldist = 3000)
 #' # example M2 profile
-#' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist=50, totaldist=3000)
+#' compute_profile(0.001, 0.045, 250, 0.64, 1.486, 32.2, 100, 0, stepdist = 10, totaldist = 3000)
 #' # example S2 profile
-#' compute_profile(0.1, 0.04, 250, 2.0, 1.486, 32.2, 10, 0, stepdist=0.1, totaldist=3000)
+#' compute_profile(0.005, 0.01, 250, 2.65, 1.486, 32.2, 10, 0, stepdist = 10, totaldist = 2000)
 #' # example S3 profile
-#' compute_profile(0.1, 0.04, 250, 1.0, 1.486, 32.2, 10, 0, stepdist=0.1, totaldist=3000)
+#' compute_profile(0.005, 0.01, 250, 0.5, 1.486, 32.2, 10, 0, stepdist = 10, totaldist = 2000)
 #' @export
 compute_profile = function(So, n, Q, y0, Cm, g, B, SS, z0=0, x0=0, stepdist, totaldist){
   # determine profile type
