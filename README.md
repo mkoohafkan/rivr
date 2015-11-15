@@ -2,6 +2,8 @@ rivr: An R package for Open Channel Hydraulics
 ==============================================
 
 [![Build Status](https://travis-ci.org/mkoohafkan/rivr.svg)](https://travis-ci.org/mkoohafkan/rivr)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rivr)](http://cran.r-project.org/package=rivr)
+
 
 This package is designed as an educational tool for students and instructors 
 of undergraduate and graduate courses in open channel hydraulics. Functions are 
