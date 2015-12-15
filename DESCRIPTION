@@ -1,20 +1,29 @@
 Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
-Version: 1.1.0.9000
+Version: 1.1.1.9000
 Date: 2015-10-15
 Author: Michael C Koohafkan [aut, cre]
 Maintainer: Michael C Koohafkan <michael.koohafkan@gmail.com>
-Description: A tool for undergraduate and graduate courses in open-channel hydraulics.
-    Provides functions for computing normal and critical depths, steady-state
-    water surface profiles (e.g. backwater curves) and unsteady flow
+Description: A tool for undergraduate and graduate courses in open-channel
+    hydraulics. Provides functions for computing normal and critical depths,
+    steady-state water surface profiles (e.g. backwater curves) and unsteady flow
     computations (e.g. flood wave routing).
-URL: https://github.com/mkoohafkan/rivr 
-BugReports: https://github.com/mkoohafkan/rivr/issues 
+URL: https://github.com/mkoohafkan/rivr
+BugReports: https://github.com/mkoohafkan/rivr/issues
 License: GPL (>= 3)
-Depends: R (>= 3.1.2), utils, graphics
-Imports: Rcpp (>= 0.11.3)
-Suggests: dplyr, ggplot2, knitr, shiny
+Depends:
+    R (>= 3.1.2),
+    utils,
+    graphics
+Imports:
+    Rcpp (>= 0.11.3)
+Suggests:
+    dplyr,
+    ggplot2,
+    knitr,
+    shiny
 LinkingTo: Rcpp
 LazyData: true
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1
