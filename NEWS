@@ -1,0 +1,13 @@
+rivr 1.2.0
+----------------------------------------------------------------
+
+NEW FEATURES
+
+* New vignette which allows reproduction of R Journal article. 
+
+* New shiny app for interactive exploration of gradually-varied flow profiles.
+
+
+BUG FIXES AND MINOR IMPROVEMENTS
+
+* Gradually-varied flow plots now plot normal and critical depths.
