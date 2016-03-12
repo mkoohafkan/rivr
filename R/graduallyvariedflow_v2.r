@@ -4,9 +4,10 @@
 #' instructors of undergraduate courses in open channel hydraulics. 
 #' Functions are provided for computing normal and critical depths, 
 #' steady (e.g. backwater curves) and unsteady (flood wave routing) 
-#' flow computations for prismatic trapezoidal channels. See the vignette
+#' flow computations for prismatic trapezoidal channels. See the vignettes
 #' to get started.
 #' @name rivr-package
+#' @aliases rivr
 #' @docType package
 #' @useDynLib rivr
 #' @importFrom Rcpp evalCpp
