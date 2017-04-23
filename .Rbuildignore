@@ -2,5 +2,9 @@
 
 LICENSE
 README.md
-
 inst/pub
+^.*\.Rproj$
+^\.Rproj\.user$
+^C:\Repository\rivr\docs$
+
+^_pkgdown\.yml$
