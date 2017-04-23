@@ -1,13 +1,17 @@
-%\VignetteEngine{knitr::docco_classic} 
-%\VignetteIndexEntry{quickstart} 
+---
+author: "Michael Koohafkan"
+title: "Quickstart with rivr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{quickstart} 
+  %\VignetteEngine{knitr::docco_classic}
+  %\VignetteEncoding{UTF-8}
+---
 
 ```{r include=FALSE}
 require(knitr)
 opts_chunk$set(warning=FALSE, message=FALSE, error=FALSE, dev='svg', fig.show='hold')
 ```
-
-Quickstart with rivr
-====================
 
 Overview
 --------

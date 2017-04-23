@@ -1,13 +1,17 @@
-%\VignetteEngine{knitr} 
-%\VignetteIndexEntry{publication-reproduction} 
+---
+author: "Michael Koohafkan"
+title: "Reproducing the R Journal Publication"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{publication-reproduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
 ```{r include=FALSE}
 require(knitr)
 opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
-
-Reproducing the R Journal Publication
-=====================================
 
 This document provides the code needed to reproduce all results and figures 
 from 
