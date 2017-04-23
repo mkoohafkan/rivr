@@ -5,6 +5,6 @@ README.md
 inst/pub
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^C:\Repository\rivr\docs$
+^docs$
 
 ^_pkgdown\.yml$

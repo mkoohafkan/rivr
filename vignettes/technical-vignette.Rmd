@@ -4,7 +4,7 @@ title: "Technical vignette for rivr"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{technical-vignette} 
-  %\VignetteEngine{knitr::docco_linear}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 

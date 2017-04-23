@@ -26,4 +26,3 @@ Channel conveyance is routinely calculated in numerical solutions of steady,
   gradually-varied and unsteady flows. This function is used extensively by internal 
   procedures and is made accessible to the user for convenience.
 }
-
