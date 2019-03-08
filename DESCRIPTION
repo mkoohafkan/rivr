@@ -13,7 +13,7 @@ Description: A tool for undergraduate and graduate courses in open-channel
 URL: https://github.com/mkoohafkan/rivr
 BugReports: https://github.com/mkoohafkan/rivr/issues
 License: GPL (>= 3)
-Depends: R (>= 3.5)
+Depends: R (>= 3.4)
 Imports:
     utils,
     graphics,
