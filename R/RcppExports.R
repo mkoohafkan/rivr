@@ -22,7 +22,7 @@
 #' froude(250, 32.2, 45, 0.45) # supercritical flow
 #' @export
 froude <- function(Q, g, A, DH) {
-    .Call('rivr_froude', PACKAGE = 'rivr', Q, g, A, DH)
+    .Call('_rivr_froude', PACKAGE = 'rivr', Q, g, A, DH)
 }
 
 #' @title Channel geometry
@@ -47,7 +47,7 @@ froude <- function(Q, g, A, DH) {
 #' channel_geom(5.79, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 #' @export
 channel_geom <- function(y, B, SS) {
-    .Call('rivr_channel_geom', PACKAGE = 'rivr', y, B, SS)
+    .Call('_rivr_channel_geom', PACKAGE = 'rivr', y, B, SS)
 }
 
 #' @title Channel conveyance
@@ -62,7 +62,7 @@ channel_geom <- function(y, B, SS) {
 #'   procedures and is made accessible to the user for convenience.
 #' @export
 conveyance <- function(n, A, R, Cm) {
-    .Call('rivr_conveyance', PACKAGE = 'rivr', n, A, R, Cm)
+    .Call('_rivr_conveyance', PACKAGE = 'rivr', n, A, R, Cm)
 }
 
 #' @title Normal depth
@@ -89,7 +89,7 @@ conveyance <- function(n, A, R, Cm) {
 #' normal_depth(0.0008, 0.013, 126, 5, 1, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 #' @export
 normal_depth <- function(So, n, Q, yopt, Cm, B, SS) {
-    .Call('rivr_normal_depth', PACKAGE = 'rivr', So, n, Q, yopt, Cm, B, SS)
+    .Call('_rivr_normal_depth', PACKAGE = 'rivr', So, n, Q, yopt, Cm, B, SS)
 }
 
 #' @title Critical depth
@@ -113,22 +113,22 @@ normal_depth <- function(So, n, Q, yopt, Cm, B, SS) {
 #' critical_depth(126, 1, 9.81, 6.1, 1.5) # trapezoidal channel with sideslope 3H:2V
 #' @export
 critical_depth <- function(Q, yopt, g, B, SS) {
-    .Call('rivr_critical_depth', PACKAGE = 'rivr', Q, yopt, g, B, SS)
+    .Call('_rivr_critical_depth', PACKAGE = 'rivr', Q, yopt, g, B, SS)
 }
 
 loop_step <- function(So, n, Q, Cm, g, y, B, SS, z, x, stepdist, totaldist) {
-    .Call('rivr_loop_step', PACKAGE = 'rivr', So, n, Q, Cm, g, y, B, SS, z, x, stepdist, totaldist)
+    .Call('_rivr_loop_step', PACKAGE = 'rivr', So, n, Q, Cm, g, y, B, SS, z, x, stepdist, totaldist)
 }
 
 kinematic_wave <- function(So, n, Cm, g, B, SS, numnodes, bc, ic, timestep, spacestep, mpidx, mtidx) {
-    .Call('rivr_kinematic_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, ic, timestep, spacestep, mpidx, mtidx)
+    .Call('_rivr_kinematic_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, ic, timestep, spacestep, mpidx, mtidx)
 }
 
 characteristic_wave <- function(So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype) {
-    .Call('rivr_characteristic_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype)
+    .Call('_rivr_characteristic_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype)
 }
 
 diffusive_wave <- function(So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype) {
-    .Call('rivr_diffusive_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype)
+    .Call('_rivr_diffusive_wave', PACKAGE = 'rivr', So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype)
 }
 

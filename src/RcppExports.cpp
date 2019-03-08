@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // froude
 double froude(double Q, double g, double A, double DH);
-RcppExport SEXP rivr_froude(SEXP QSEXP, SEXP gSEXP, SEXP ASEXP, SEXP DHSEXP) {
+RcppExport SEXP _rivr_froude(SEXP QSEXP, SEXP gSEXP, SEXP ASEXP, SEXP DHSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -21,7 +21,7 @@ END_RCPP
 }
 // channel_geom
 NumericVector channel_geom(double y, double B, double SS);
-RcppExport SEXP rivr_channel_geom(SEXP ySEXP, SEXP BSEXP, SEXP SSSEXP) {
+RcppExport SEXP _rivr_channel_geom(SEXP ySEXP, SEXP BSEXP, SEXP SSSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -34,7 +34,7 @@ END_RCPP
 }
 // conveyance
 double conveyance(double n, double A, double R, double Cm);
-RcppExport SEXP rivr_conveyance(SEXP nSEXP, SEXP ASEXP, SEXP RSEXP, SEXP CmSEXP) {
+RcppExport SEXP _rivr_conveyance(SEXP nSEXP, SEXP ASEXP, SEXP RSEXP, SEXP CmSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -48,7 +48,7 @@ END_RCPP
 }
 // normal_depth
 double normal_depth(double So, double n, double Q, double yopt, double Cm, double B, double SS);
-RcppExport SEXP rivr_normal_depth(SEXP SoSEXP, SEXP nSEXP, SEXP QSEXP, SEXP yoptSEXP, SEXP CmSEXP, SEXP BSEXP, SEXP SSSEXP) {
+RcppExport SEXP _rivr_normal_depth(SEXP SoSEXP, SEXP nSEXP, SEXP QSEXP, SEXP yoptSEXP, SEXP CmSEXP, SEXP BSEXP, SEXP SSSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -65,7 +65,7 @@ END_RCPP
 }
 // critical_depth
 double critical_depth(double Q, double yopt, double g, double B, double SS);
-RcppExport SEXP rivr_critical_depth(SEXP QSEXP, SEXP yoptSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP) {
+RcppExport SEXP _rivr_critical_depth(SEXP QSEXP, SEXP yoptSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -80,7 +80,7 @@ END_RCPP
 }
 // loop_step
 NumericMatrix loop_step(double So, double n, double Q, double Cm, double g, double y, double B, double SS, double z, double x, double stepdist, double totaldist);
-RcppExport SEXP rivr_loop_step(SEXP SoSEXP, SEXP nSEXP, SEXP QSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP ySEXP, SEXP BSEXP, SEXP SSSEXP, SEXP zSEXP, SEXP xSEXP, SEXP stepdistSEXP, SEXP totaldistSEXP) {
+RcppExport SEXP _rivr_loop_step(SEXP SoSEXP, SEXP nSEXP, SEXP QSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP ySEXP, SEXP BSEXP, SEXP SSSEXP, SEXP zSEXP, SEXP xSEXP, SEXP stepdistSEXP, SEXP totaldistSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -102,7 +102,7 @@ END_RCPP
 }
 // kinematic_wave
 List kinematic_wave(double So, double n, double Cm, double g, double B, double SS, int numnodes, NumericVector bc, double ic, double timestep, double spacestep, IntegerVector mpidx, IntegerVector mtidx);
-RcppExport SEXP rivr_kinematic_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP) {
+RcppExport SEXP _rivr_kinematic_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -125,7 +125,7 @@ END_RCPP
 }
 // characteristic_wave
 List characteristic_wave(double So, double n, double Cm, double g, double B, double SS, int numnodes, NumericVector bc, NumericVector dc, double ic, double timestep, double spacestep, IntegerVector mpidx, IntegerVector mtidx, std::string btype);
-RcppExport SEXP rivr_characteristic_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP dcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP, SEXP btypeSEXP) {
+RcppExport SEXP _rivr_characteristic_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP dcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP, SEXP btypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -150,7 +150,7 @@ END_RCPP
 }
 // diffusive_wave
 List diffusive_wave(double So, double n, double Cm, double g, double B, double SS, int numnodes, NumericVector bc, NumericVector dc, double ic, double timestep, double spacestep, IntegerVector mpidx, IntegerVector mtidx, std::string btype);
-RcppExport SEXP rivr_diffusive_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP dcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP, SEXP btypeSEXP) {
+RcppExport SEXP _rivr_diffusive_wave(SEXP SoSEXP, SEXP nSEXP, SEXP CmSEXP, SEXP gSEXP, SEXP BSEXP, SEXP SSSEXP, SEXP numnodesSEXP, SEXP bcSEXP, SEXP dcSEXP, SEXP icSEXP, SEXP timestepSEXP, SEXP spacestepSEXP, SEXP mpidxSEXP, SEXP mtidxSEXP, SEXP btypeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -172,4 +172,22 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(diffusive_wave(So, n, Cm, g, B, SS, numnodes, bc, dc, ic, timestep, spacestep, mpidx, mtidx, btype));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_rivr_froude", (DL_FUNC) &_rivr_froude, 4},
+    {"_rivr_channel_geom", (DL_FUNC) &_rivr_channel_geom, 3},
+    {"_rivr_conveyance", (DL_FUNC) &_rivr_conveyance, 4},
+    {"_rivr_normal_depth", (DL_FUNC) &_rivr_normal_depth, 7},
+    {"_rivr_critical_depth", (DL_FUNC) &_rivr_critical_depth, 5},
+    {"_rivr_loop_step", (DL_FUNC) &_rivr_loop_step, 12},
+    {"_rivr_kinematic_wave", (DL_FUNC) &_rivr_kinematic_wave, 13},
+    {"_rivr_characteristic_wave", (DL_FUNC) &_rivr_characteristic_wave, 15},
+    {"_rivr_diffusive_wave", (DL_FUNC) &_rivr_diffusive_wave, 15},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_rivr(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }
