@@ -320,7 +320,7 @@ List kinematic_wave(double So, double n, double Cm, double g, double B,
       double dy = 9999;
       int j = 0;
       newdepth[i] = newdepth[i-1];
-      while((abs(dy) > tol) & (j < maxit)){
+      while((fabs(dy) > tol) & (j < maxit)){
         NumericVector gp = channel_geom(newdepth[i], B, SS) ;
         dy = (gp["A"] - pow(n*newflow[i]/(Cm*sqrt(So)), 3.0/5.0)*pow(gp["P"], 2.0/5.0)) / 
           (gp["dAdy"] - (2.0/5.0)*gp["dPdy"]*pow(n*newflow[i]/(Cm*gp["P"]*sqrt(So)), 3.0/5.0));		  
