@@ -1,8 +1,8 @@
 Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
-Version: 1.2.0.9000
-Date: 2016-03-11
+Version: 1.2-1
+Date: 2019-03-08
 Authors@R: c(
     person("Michael", "Koohafkan", , "michael.koohafkan@gmail.com", role = c("aut", "cre"))
     )
@@ -13,12 +13,11 @@ Description: A tool for undergraduate and graduate courses in open-channel
 URL: https://github.com/mkoohafkan/rivr
 BugReports: https://github.com/mkoohafkan/rivr/issues
 License: GPL (>= 3)
-Depends:
-    R (>= 3.1.2),
-    utils,
-    graphics
+Depends: R (>= 3.5)
 Imports:
-    Rcpp (>= 0.11.3)
+    utils,
+    graphics,
+    Rcpp (>= 1.0)
 Suggests:
     dplyr,
     ggplot2,
@@ -28,4 +27,4 @@ Suggests:
 LinkingTo: Rcpp
 LazyData: true
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
