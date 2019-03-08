@@ -1,10 +1,11 @@
 dist: xenial
 language: r
 r:
+  - oldrel
   - release
   - devel
+sudo: required
 cache: packages
-sudo: false
 
 # Be strict when checking our package
 warnings_are_errors: true
