@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.438
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{DA7A21FA-8162-4350-AD77-A8D1B671F3ED}") = "rivr", "rivr.rxproj", "{7F73A2C8-FD26-4315-87CF-F98A342B142C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F73A2C8-FD26-4315-87CF-F98A342B142C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F73A2C8-FD26-4315-87CF-F98A342B142C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F73A2C8-FD26-4315-87CF-F98A342B142C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F73A2C8-FD26-4315-87CF-F98A342B142C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D8A3EEB-22D5-4825-A4C1-7E53B024E32D}
+	EndGlobalSection
+EndGlobal

@@ -1,3 +1,4 @@
 *\.o
 *\.dll
 .Rproj.user
+.vs

@@ -1,10 +1,19 @@
+^CRAN-RELEASE$
 ^\.travis\.yml$
-
+^cran-comments\.md$
+^_pkgdown.yml$
 LICENSE
 README.md
-inst/pub
+.gitignore
+.rhistory
+.gitattribute
+.vs
+.git
+.rproj
+.rxproj
+.sln
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^docs$
 
-^_pkgdown\.yml$
+inst/pub
+^docs$
