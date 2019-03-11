@@ -3,7 +3,7 @@ author: "Michael Koohafkan"
 title: "Quickstart with rivr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{quickstart} 
+  %\VignetteIndexEntry{Quickstart} 
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

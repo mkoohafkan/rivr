@@ -1,9 +1,9 @@
 ---
 author: "Michael Koohafkan"
-title: "Technical vignette for rivr"
+title: "Derivations used in rivr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{technical-vignette} 
+  %\VignetteIndexEntry{Derivations} 
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

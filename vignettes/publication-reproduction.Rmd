@@ -3,13 +3,13 @@ author: "Michael Koohafkan"
 title: "Reproducing the R Journal Publication"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{publication-reproduction}
+  %\VignetteIndexEntry{Publication Reproduction}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r include=FALSE}
-require(knitr)
+```{r include = FALSE}
+library(knitr)
 opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
@@ -497,3 +497,4 @@ for(n in unique(dclose.times$step))
     facet_wrap(~scheme)
   )
 ```
+
