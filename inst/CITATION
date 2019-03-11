@@ -9,11 +9,11 @@ citEntry(entry = "Article",
   volume       = "7",
   number       = "2",
   pages        = "249--262",
-  url          = "http://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf",
+  url          = "https://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf",
 
   textVersion  =
   paste("Michael C. Koohafkan and Bassam A. Younis (2015).",
         "Open-Channel Computation with R.",
         "The R Journal, 7(2), 249-262.",
-        "URL http://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf.")
+        "URL https://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf.")
 )

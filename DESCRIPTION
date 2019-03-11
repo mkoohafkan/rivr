@@ -4,7 +4,7 @@ Title: Steady and Unsteady Open-Channel Flow Computation
 Version: 1.2-1
 Date: 2019-03-08
 Authors@R: c(
-    person("Michael", "Koohafkan", , "michael.koohafkan@gmail.com", role = c("aut", "cre"))
+    person("Michael", "Koohafkan", "C", "michael.koohafkan@gmail.com", role = c("aut", "cre"))
     )
 Description: A tool for undergraduate and graduate courses in open-channel
     hydraulics. Provides functions for computing normal and critical depths,
