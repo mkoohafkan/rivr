@@ -18,7 +18,7 @@ from
 
 > Michael C. Koohafkan and Bassam A. Younis (2015). 
 > Open-Channel Computation with R. The R Journal, 7(2), 249-262. 
-> URL http://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf
+> URL https://journal.r-project.org/archive/2015-2/koohafkan-younis.pdf
 
 The .Rnw file used to generate the full publication is hosted on the
 [package development repository](https://github.com/mkoohafkan/rivr/tree/master/inst/pub).
