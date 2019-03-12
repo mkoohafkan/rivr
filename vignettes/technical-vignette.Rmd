@@ -28,7 +28,7 @@ with the three discretization methods available in `rivr`. Finally, Section 5
 discusses the Method of Characteristics and its application to boundary 
 conditions of unsteady flow simulations.
 
-[id]: http://www.springer.com/us/book/9780387301747 "Chaudhry, M. H. (2007). Open-channel flow. Springer Science & Business Media."
+[id]: https://www.springer.com/us/book/9780387301747 "Chaudhry, M. H. (2007). Open-channel flow. Springer Science & Business Media."
 
 Section 1: Channel geometry relations
 -------------------------------------
