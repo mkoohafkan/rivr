@@ -1,4 +1,4 @@
-# rivr: A package for teaching Open Channel Hydraulics <a href='https://github.com/mkoohafkan/rivr'><img src='man/figures/logo.png' align="right" height="139" /></a>
+# rivr: A package for teaching open-channel hydraulics <a href='https://github.com/mkoohafkan/rivr'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 [![Build Status](https://travis-ci.org/mkoohafkan/rivr.svg)](https://travis-ci.org/mkoohafkan/rivr)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rivr)](http://cran.r-project.org/package=rivr)
