@@ -4,8 +4,20 @@
 \alias{compute_profile}
 \title{Gradually-varied flow profiles}
 \usage{
-compute_profile(So, n, Q, y0, Cm, g, B, SS, z0 = 0, x0 = 0, stepdist,
-  totaldist)
+compute_profile(
+  So,
+  n,
+  Q,
+  y0,
+  Cm,
+  g,
+  B,
+  SS,
+  z0 = 0,
+  x0 = 0,
+  stepdist,
+  totaldist
+)
 }
 \arguments{
 \item{So}{Channel slope [\eqn{L L^{-1}}].}

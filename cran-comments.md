@@ -7,7 +7,9 @@ a `stringsAsFactors = FALSE` default.
 ## Test environments
 
 * Local Windows 10 install, R 3.6.2
-* Ubuntu 14.04 (on travis-ci), R-oldrel, R-release, R-devel
+* Ubuntu 14.04 (on travis-ci), R-oldrel, R-release, R-devel 
+
+(confirmed R-devel on Travis was updated to r77865)
 
 ## R CMD check results
 

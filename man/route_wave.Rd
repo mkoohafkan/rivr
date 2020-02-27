@@ -4,11 +4,25 @@
 \alias{route_wave}
 \title{Flood wave routing}
 \usage{
-route_wave(So, n, Cm, g, B, SS, initial.condition, boundary.condition,
-  downstream.condition, timestep, spacestep, numnodes, monitor.nodes,
-  monitor.times, engine = c("Dynamic", "Kinematic"),
-  scheme = c("MacCormack", "Lax"), boundary.type = c("QQ", "Qy", "yQ",
-  "yy"))
+route_wave(
+  So,
+  n,
+  Cm,
+  g,
+  B,
+  SS,
+  initial.condition,
+  boundary.condition,
+  downstream.condition,
+  timestep,
+  spacestep,
+  numnodes,
+  monitor.nodes,
+  monitor.times,
+  engine = c("Dynamic", "Kinematic"),
+  scheme = c("MacCormack", "Lax"),
+  boundary.type = c("QQ", "Qy", "yQ", "yy")
+)
 }
 \arguments{
 \item{So}{Channel slope [\eqn{L L^{-1}}].}
