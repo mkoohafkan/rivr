@@ -1,3 +1,18 @@
+# rivr 1.2-2
+
+This patch release modifies internal behavior to handle an upcoming change
+to R 4.0.0, which makes `data.frame()` and `read.table()` use
+a `stringsAsFactors = FALSE` default. See
+https://developer.r-project.org/Blog/public/2020/02/16/stringsasfactors/index.html
+for more information about this change.
+
+
+# rivr 1.2-1
+
+This patch release recompiles the C++ code in response to 
+updates to package Rcpp in order to generate new binaries on CRAN.
+
+
 # rivr 1.2
 
 This minor version update adds new documentation.

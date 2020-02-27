@@ -1,8 +1,8 @@
 Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
-Version: 1.2-1.9000
-Date: 2019-03-12
+Version: 1.2-2
+Date: 2020-02-27
 Authors@R: c(
     person("Michael C", "Koohafkan", , "michael.koohafkan@gmail.com", role = c("aut", "cre"))
     )
@@ -27,4 +27,4 @@ Suggests:
 LinkingTo: Rcpp
 LazyData: true
 VignetteBuilder: knitr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
