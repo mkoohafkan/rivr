@@ -158,6 +158,7 @@ route_wave = function(So, n, Cm, g, B, SS,
   # extract monitor data
   stackmat = function(m){  
     d = cbind(rid = rep(rownames(m), ncol(m)), stack(as.data.frame(m))[2:1])
+    d["rid"] = factor(d$rid, unique(d$rid))
     d[[1]] = as.numeric(levels(d$rid))[d$rid]
     d[[2]] = as.numeric(levels(d$ind))[d$ind]
     d
