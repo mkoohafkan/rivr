@@ -1,9 +1,0 @@
-language: r
-r:
-  - oldrel
-  - release
-  - devel
-cache: packages
-
-# Be strict when checking our package
-warnings_are_errors: true

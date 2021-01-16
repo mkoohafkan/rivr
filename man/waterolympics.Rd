@@ -4,7 +4,9 @@
 \name{waterolympics}
 \alias{waterolympics}
 \title{California Water Olympics}
-\format{A data frame with 40 rows and 3 variables}
+\format{
+A data frame with 40 rows and 3 variables
+}
 \usage{
 data(waterolympics)
 }
