@@ -5,6 +5,7 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rivr)](http://cran.r-project.org/package=rivr)
 <!-- badges: end -->
 
+See the documentation at [hydroecology.net/rivr](https://hydroecology.net/rivr)
 
 This package is designed as an educational tool for students and instructors 
 of undergraduate and graduate courses in open channel hydraulics. Functions are 
