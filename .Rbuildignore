@@ -18,3 +18,5 @@ README.md
 inst/pub
 ^docs$
 ^\.github$
+^_pkgdown\.yml$
+^pkgdown$

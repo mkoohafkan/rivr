@@ -1,15 +1,24 @@
-Submission of rivr 1.2-2. 
+Submission of rivr 1.2-3. 
 
-This patch release modifies internal behavior to handle an upcoming change
-to R 4.0.0, which makes `data.frame()` and `read.table()` use
-a `stringsAsFactors = FALSE` default.
+This patch release modifies th vignettes
+to produce images in PNG rather than SVG
+format. SVG support is optional in R and
+thus not suitable for use in when generating package vignettes.
 
 ## Test environments
 
-* Local Windows 10 install, R 3.6.2
-* Ubuntu 14.04 (on travis-ci), R-oldrel, R-release, R-devel 
+R-CMD-check using GitHub Actions and the following environments:
 
-(confirmed R-devel on Travis was updated to r77865)
+- {os: macOS-latest,   r: 'devel'}
+- {os: macOS-latest,   r: 'release'}
+- {os: macOS-latest,   r: 'oldrel'}
+- {os: windows-latest, r: 'devel'}
+- {os: windows-latest, r: 'release'}
+- {os: windows-latest, r: 'oldrel'}
+- {os: ubuntu-16.04,   r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest", http-user-agent: "R/4.0.0 (ubuntu-16.04) R (4.0.0 x86_64-pc-linux-gnu x86_64 linux-gnu) on GitHub Actions" }
+- {os: ubuntu-16.04,   r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+- {os: ubuntu-16.04,   r: 'oldrel',  rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
+
 
 ## R CMD check results
 
