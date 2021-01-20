@@ -1,6 +1,6 @@
 Submission of rivr 1.2-3. 
 
-This patch release modifies th vignettes
+This patch release modifies the vignettes
 to produce images in PNG rather than SVG
 format. SVG support is optional in R and
 thus not suitable for use in when generating package vignettes.
