@@ -1,4 +1,8 @@
-Submission of rivr 1.2-3. 
+Resubmission of rivr 1.2-3. 
+
+Removed the Date field from DESCRIPTION (since it is not
+required) and added citation information as per CRAN 
+feedback.
 
 This patch release modifies the vignettes
 to produce images in PNG rather than SVG
