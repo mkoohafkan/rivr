@@ -2,14 +2,15 @@ Package: rivr
 Type: Package
 Title: Steady and Unsteady Open-Channel Flow Computation
 Version: 1.2-3
-Date: 2020-02-27
 Authors@R: c(
     person("Michael C", "Koohafkan", , "michael.koohafkan@gmail.com", role = c("aut", "cre"))
     )
 Description: A tool for undergraduate and graduate courses in open-channel
     hydraulics. Provides functions for computing normal and critical depths,
     steady-state water surface profiles (e.g. backwater curves) and unsteady flow
-    computations (e.g. flood wave routing).
+    computations (e.g. flood wave routing) as described in
+    Koohafkan MC, Younis BA (2015). "Open-channel computation with R."
+    The R Journal, 7(2), 249–262. <doi: 10.32614/RJ-2015-034>.
 URL: https://github.com/mkoohafkan/rivr
 BugReports: https://github.com/mkoohafkan/rivr/issues
 License: GPL (>= 3)
