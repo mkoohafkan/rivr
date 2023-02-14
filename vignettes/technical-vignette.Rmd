@@ -126,7 +126,7 @@ $$
 where $u$ is the uniform flow velocity. The critical depth is then the flow 
 depth that satisfies
 $$
-\frac{dE}{dy} = 0 = 1 - \frac{Q^2}{gA^3}\frac{dA}{dy} = \frac{Q^2 T}{gA^3}
+\frac{dE}{dy} = 0 = 1 - \frac{Q^2}{gA^3}\frac{dA}{dy} = 1 - \frac{Q^2 T}{gA^3}
 $$
 For a trapezoidal channel it can be mathematically proved that only one 
 critical depth exists for a given flow rate. The critical depth can be solved 
