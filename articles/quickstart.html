@@ -26,6 +26,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,23 +40,17 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rivr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2-3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.2-3</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -77,7 +73,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/mkoohafkan/rivr/">
+  <a href="https://github.com/mkoohafkan/rivr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -92,29 +88,38 @@
 
       
 
-      </header><script src="quickstart_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Quickstart with rivr</h1>
-                        <h4 class="author">Michael Koohafkan</h4>
+                        <h4 data-toc-skip class="author">Michael
+Koohafkan</h4>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/mkoohafkan/rivr/blob/master/vignettes/quickstart.Rmd"><code>vignettes/quickstart.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/mkoohafkan/rivr/blob/HEAD/vignettes/quickstart.Rmd" class="external-link"><code>vignettes/quickstart.Rmd</code></a></small>
       <div class="hidden name"><code>quickstart.Rmd</code></div>
 
     </div>
 
     
     
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>rivr</code> provides functions for calculating the normal depth and critical depth, computing gradually-varied flow profiles, and solving the unsteady flow equations using finite-differencing methods. Outputs are formatted for manipulation with <code>dplyr</code> and visualization with <code>ggplot2</code>. This vignette provides a brief introduction to the main functions and example applications.</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><code>rivr</code> provides functions for calculating the normal depth
+and critical depth, computing gradually-varied flow profiles, and
+solving the unsteady flow equations using finite-differencing methods.
+Outputs are formatted for manipulation with <code>dplyr</code> and
+visualization with <code>ggplot2</code>. This vignette provides a brief
+introduction to the main functions and example applications.</p>
 </div>
-<div id="class-methods" class="section level2">
-<h2 class="hasAnchor">
-<a href="#class-methods" class="anchor"></a>Class methods</h2>
-<p>The <code>rivr</code> package defines a new class <code>rivr</code>, which is essentially an extension of the <code>data.frame</code> class with additional atributes. The following methods are defined for class <code>rivr</code>:</p>
+<div class="section level2">
+<h2 id="class-methods">Class methods<a class="anchor" aria-label="anchor" href="#class-methods"></a>
+</h2>
+<p>The <code>rivr</code> package defines a new class <code>rivr</code>,
+which is essentially an extension of the <code>data.frame</code> class
+with additional atributes. The following methods are defined for class
+<code>rivr</code>:</p>
 <ul>
 <li><code>head</code></li>
 <li><code>tail</code></li>
@@ -123,74 +128,106 @@
 <li><code>plot</code></li>
 </ul>
 </div>
-<div id="computing-normal-and-critical-depth" class="section level2">
-<h2 class="hasAnchor">
-<a href="#computing-normal-and-critical-depth" class="anchor"></a>Computing normal and critical depth</h2>
-<p>The normal depth <span class="math inline">\(y_n\)</span> is defined as the flow depth at which <span class="math display">\[
+<div class="section level2">
+<h2 id="computing-normal-and-critical-depth">Computing normal and critical depth<a class="anchor" aria-label="anchor" href="#computing-normal-and-critical-depth"></a>
+</h2>
+<p>The normal depth <span class="math inline">\(y_n\)</span> is defined
+as the flow depth at which <span class="math display">\[
 Q = \frac{C_m}{n} AR^{2/3}S_0^{1/2}
-\]</span> Where <span class="math inline">\(Q\)</span> is the flow rate, <span class="math inline">\(n\)</span> is Manning’s coefficient, <span class="math inline">\(A\)</span> is the cross-sectional flow area (also a function of flow depth), <span class="math inline">\(R\)</span> is the hydraulic radius and <span class="math inline">\(S_0\)</span> is the bed slope. The critical depth <span class="math inline">\(y_c\)</span> is defined as the flow depth at which <span class="math display">\[
+\]</span> Where <span class="math inline">\(Q\)</span> is the flow rate,
+<span class="math inline">\(n\)</span> is Manning’s coefficient, <span class="math inline">\(A\)</span> is the cross-sectional flow area (also
+a function of flow depth), <span class="math inline">\(R\)</span> is the
+hydraulic radius and <span class="math inline">\(S_0\)</span> is the bed
+slope. The critical depth <span class="math inline">\(y_c\)</span> is
+defined as the flow depth at which <span class="math display">\[
 \frac{dE}{dy} = 1 - \frac{Q^2}{gA^3}\frac{dA}{dy} = 0.
-\]</span> Both <span class="math inline">\(y_n\)</span> and <span class="math inline">\(y_c\)</span> are non-linear functions of <span class="math inline">\(y\)</span>. <code>rivr</code> provides functions for computing normal and critical depths, as shown below. In both cases a Newton-Raphson scheme is used to solved the equations.</p>
+\]</span> Both <span class="math inline">\(y_n\)</span> and <span class="math inline">\(y_c\)</span> are non-linear functions of <span class="math inline">\(y\)</span>. <code>rivr</code> provides functions
+for computing normal and critical depths, as shown below. In both cases
+a Newton-Raphson scheme is used to solved the equations.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mkoohafkan/rivr">rivr</a></span><span class="op">)</span>
-<span class="va">flow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span>
-<span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span>
-
-<span class="va">yn</span> <span class="op">=</span> <span class="fu"><a href="../reference/normal_depth.html">normal_depth</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">flow</span>, yopt <span class="op">=</span> <span class="fl">2</span>, <span class="va">Cm</span>, <span class="va">width</span>, <span class="va">sideslope</span><span class="op">)</span>
-<span class="va">yc</span> <span class="op">=</span> <span class="fu"><a href="../reference/critical_depth.html">critical_depth</a></span><span class="op">(</span><span class="va">flow</span>, yopt <span class="op">=</span> <span class="fl">2</span>, <span class="va">gravity</span>, <span class="va">width</span>, <span class="va">sideslope</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>normal.depth <span class="op">=</span> <span class="va">yn</span>, critical.depth <span class="op">=</span> <span class="va">yc</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<pre><code>##   normal.depth critical.depth 
-##      1.7113010      0.5789949</code></pre>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://github.com/mkoohafkan/rivr" class="external-link">rivr</a></span><span class="op">)</span></span>
+<span><span class="va">flow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span></span>
+<span><span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="va">yn</span> <span class="op">=</span> <span class="fu"><a href="../reference/normal_depth.html">normal_depth</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">flow</span>, yopt <span class="op">=</span> <span class="fl">2</span>, <span class="va">Cm</span>, <span class="va">width</span>, <span class="va">sideslope</span><span class="op">)</span></span>
+<span><span class="va">yc</span> <span class="op">=</span> <span class="fu"><a href="../reference/critical_depth.html">critical_depth</a></span><span class="op">(</span><span class="va">flow</span>, yopt <span class="op">=</span> <span class="fl">2</span>, <span class="va">gravity</span>, <span class="va">width</span>, <span class="va">sideslope</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>normal.depth <span class="op">=</span> <span class="va">yn</span>, critical.depth <span class="op">=</span> <span class="va">yc</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">##   normal.depth critical.depth </span></span>
+<span><span class="co">##      1.7113010      0.5789949</span></span></code></pre>
 </div>
-<div id="standard-step-method-for-gradually-varied-flow-profiles" class="section level2">
-<h2 class="hasAnchor">
-<a href="#standard-step-method-for-gradually-varied-flow-profiles" class="anchor"></a>Standard-step method for gradually-varied flow profiles</h2>
-<p>The standard step method can be used to solve steady-state water surface profiles. The solution to gradually-varied flow profiles is based on the non-linear ordinary differential equation <span class="math display">\[
+<div class="section level2">
+<h2 id="standard-step-method-for-gradually-varied-flow-profiles">Standard-step method for gradually-varied flow profiles<a class="anchor" aria-label="anchor" href="#standard-step-method-for-gradually-varied-flow-profiles"></a>
+</h2>
+<p>The standard step method can be used to solve steady-state water
+surface profiles. The solution to gradually-varied flow profiles is
+based on the non-linear ordinary differential equation <span class="math display">\[
 \frac{dy}{dx} = \frac{S_0 - S_f}{1 - Fr^2}
-\]</span> and is appropriate for cases where <span class="math inline">\(\frac{dy}{dx}\)</span> is small. The standard-step method operates by stepping along the channel by a constant distance interval, starting from a cross-section where the flow depth is known (the control section). The flow depth is computed at the adjacent cross-section (target section). The computed value at the target is then used as the basis for computing flow depth at the next cross-section, i.e. the previous target section becomes the new control section for each step. A Newton-Raphson scheme is used each step to compute the flow depth and friction slope. Technically, the average friction slope of the control and target section is used to compute the flow depth at the target section.</p>
+\]</span> and is appropriate for cases where <span class="math inline">\(\frac{dy}{dx}\)</span> is small. The standard-step
+method operates by stepping along the channel by a constant distance
+interval, starting from a cross-section where the flow depth is known
+(the control section). The flow depth is computed at the adjacent
+cross-section (target section). The computed value at the target is then
+used as the basis for computing flow depth at the next cross-section,
+i.e. the previous target section becomes the new control section for
+each step. A Newton-Raphson scheme is used each step to compute the flow
+depth and friction slope. Technically, the average friction slope of the
+control and target section is used to compute the flow depth at the
+target section.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">flow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span>
-<span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span>
-
-<span class="va">gvf</span> <span class="op">=</span> <span class="fu"><a href="../reference/compute_profile.html">compute_profile</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">flow</span>, y0 <span class="op">=</span> <span class="fl">2.7</span>, <span class="va">Cm</span>, <span class="va">gravity</span>, <span class="va">width</span>, 
-  <span class="va">sideslope</span>, stepdist<span class="op">=</span><span class="fl">50</span>, totaldist<span class="op">=</span><span class="fl">3000</span><span class="op">)</span></code></pre></div>
-<p>While a <code>plot</code> method is defined for <code>rivr</code> objects, the output is also formatted for easy visualization with <code>ggplot2</code>.</p>
+<code class="sourceCode R"><span><span class="va">flow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span></span>
+<span><span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="va">gvf</span> <span class="op">=</span> <span class="fu"><a href="../reference/compute_profile.html">compute_profile</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">flow</span>, y0 <span class="op">=</span> <span class="fl">2.7</span>, <span class="va">Cm</span>, <span class="va">gravity</span>, <span class="va">width</span>, </span>
+<span>  <span class="va">sideslope</span>, stepdist<span class="op">=</span><span class="fl">50</span>, totaldist<span class="op">=</span><span class="fl">3000</span><span class="op">)</span></span></code></pre></div>
+<p>While a <code>plot</code> method is defined for <code>rivr</code>
+objects, the output is also formatted for easy visualization with
+<code>ggplot2</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">gvf</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span>
-<span class="co"># or try the default plot method</span>
-<span class="co"># plot(gvf)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">gvf</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, y <span class="op">=</span> <span class="va">y</span> <span class="op">+</span> <span class="va">z</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span>color<span class="op">=</span><span class="st">'blue'</span><span class="op">)</span></span>
+<span><span class="co"># or try the default plot method</span></span>
+<span><span class="co"># plot(gvf)</span></span></code></pre></div>
 <p><img src="quickstart_files/figure-html/plot-gvf-1.png" width="700"></p>
 </div>
-<div id="unsteady-flow" class="section level2">
-<h2 class="hasAnchor">
-<a href="#unsteady-flow" class="anchor"></a>Unsteady flow</h2>
-<p>Unsteady flow models solve the shallow water equations (conservation of mass and conservation of momentum). Kinematic wave models (KWM) use a truncated form of the momentum equation while dynamic wave models (DWM) solve the mass and momentum equations simultaneously. A variety of numerical schemes can be used to solve these equations. <code>rivr</code> provides an interface to multiple explicit finite differencing schemes (one KWM scheme and two DWM schemes) for computing unsteady flows. The MacCormack scheme is recommended for most applications.</p>
+<div class="section level2">
+<h2 id="unsteady-flow">Unsteady flow<a class="anchor" aria-label="anchor" href="#unsteady-flow"></a>
+</h2>
+<p>Unsteady flow models solve the shallow water equations (conservation
+of mass and conservation of momentum). Kinematic wave models (KWM) use a
+truncated form of the momentum equation while dynamic wave models (DWM)
+solve the mass and momentum equations simultaneously. A variety of
+numerical schemes can be used to solve these equations.
+<code>rivr</code> provides an interface to multiple explicit finite
+differencing schemes (one KWM scheme and two DWM schemes) for computing
+unsteady flows. The MacCormack scheme is recommended for most
+applications.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">baseflow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span>
-<span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span>
-
-<span class="va">numnodes</span> <span class="op">=</span> <span class="fl">301</span>; <span class="va">xresolution</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">tresolution</span> <span class="op">=</span> <span class="fl">10</span>; 
-<span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">30000</span>, by <span class="op">=</span> <span class="va">tresolution</span><span class="op">)</span>
-<span class="va">wave</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">times</span> <span class="op">&gt;=</span> <span class="fl">9000</span>, <span class="va">baseflow</span>,
-  <span class="va">baseflow</span> <span class="op">+</span> <span class="op">(</span><span class="fl">750</span><span class="op">/</span><span class="va">pi</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span><span class="op">(</span><span class="va">pi</span><span class="op">*</span><span class="va">times</span><span class="op">/</span><span class="op">(</span><span class="fl">60</span><span class="op">*</span><span class="fl">75</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
-<span class="va">downstream</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">wave</span><span class="op">)</span><span class="op">)</span>
-
-<span class="va">mn</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">101</span>, <span class="fl">201</span><span class="op">)</span>
-<span class="va">mt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">501</span>, <span class="fl">1501</span>, <span class="fl">3001</span><span class="op">)</span>
-<span class="va">uf</span> <span class="op">=</span> <span class="fu"><a href="../reference/route_wave.html">route_wave</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">Cm</span>, <span class="va">gravity</span>, <span class="va">width</span>, <span class="va">sideslope</span>, 
-  <span class="va">baseflow</span>, <span class="va">wave</span>, <span class="va">downstream</span>, <span class="va">tresolution</span>, <span class="va">xresolution</span>, <span class="va">numnodes</span>, 
-  <span class="va">mn</span>, <span class="va">mt</span>, <span class="st">"Dynamic"</span>, <span class="st">"MacCormack"</span>, <span class="st">"QQ"</span><span class="op">)</span> </code></pre></div>
-<p>Methods are defined for printing and summarizing <code>rivr</code> objects. Accessing the unsteady flow outputs for in-depth analysis is greatly simplified by using <code>dplyr</code>.</p>
+<code class="sourceCode R"><span><span class="va">baseflow</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">mannings</span> <span class="op">=</span> <span class="fl">0.045</span> ; <span class="va">Cm</span> <span class="op">=</span> <span class="fl">1.486</span>; <span class="va">gravity</span> <span class="op">=</span> <span class="fl">32.2</span></span>
+<span><span class="va">width</span> <span class="op">=</span> <span class="fl">100</span>; <span class="va">slope</span> <span class="op">=</span> <span class="fl">0.001</span>; <span class="va">sideslope</span> <span class="op">=</span> <span class="fl">0</span></span>
+<span></span>
+<span><span class="va">numnodes</span> <span class="op">=</span> <span class="fl">301</span>; <span class="va">xresolution</span> <span class="op">=</span> <span class="fl">250</span>; <span class="va">tresolution</span> <span class="op">=</span> <span class="fl">10</span>; </span>
+<span><span class="va">times</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">30000</span>, by <span class="op">=</span> <span class="va">tresolution</span><span class="op">)</span></span>
+<span><span class="va">wave</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">times</span> <span class="op">&gt;=</span> <span class="fl">9000</span>, <span class="va">baseflow</span>,</span>
+<span>  <span class="va">baseflow</span> <span class="op">+</span> <span class="op">(</span><span class="fl">750</span><span class="op">/</span><span class="va">pi</span><span class="op">)</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html" class="external-link">cos</a></span><span class="op">(</span><span class="va">pi</span><span class="op">*</span><span class="va">times</span><span class="op">/</span><span class="op">(</span><span class="fl">60</span><span class="op">*</span><span class="fl">75</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">downstream</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">wave</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mn</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">101</span>, <span class="fl">201</span><span class="op">)</span></span>
+<span><span class="va">mt</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">501</span>, <span class="fl">1501</span>, <span class="fl">3001</span><span class="op">)</span></span>
+<span><span class="va">uf</span> <span class="op">=</span> <span class="fu"><a href="../reference/route_wave.html">route_wave</a></span><span class="op">(</span><span class="va">slope</span>, <span class="va">mannings</span>, <span class="va">Cm</span>, <span class="va">gravity</span>, <span class="va">width</span>, <span class="va">sideslope</span>, </span>
+<span>  <span class="va">baseflow</span>, <span class="va">wave</span>, <span class="va">downstream</span>, <span class="va">tresolution</span>, <span class="va">xresolution</span>, <span class="va">numnodes</span>, </span>
+<span>  <span class="va">mn</span>, <span class="va">mt</span>, <span class="st">"Dynamic"</span>, <span class="st">"MacCormack"</span>, <span class="st">"QQ"</span><span class="op">)</span> </span></code></pre></div>
+<p>Methods are defined for printing and summarizing <code>rivr</code>
+objects. Accessing the unsteady flow outputs for in-depth analysis is
+greatly simplified by using <code>dplyr</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="va">uf.nodes</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">uf</span>, <span class="va">monitor.type</span> <span class="op">==</span> <span class="st">"node"</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uf.nodes</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>, y<span class="op">=</span><span class="va">flow</span>, color<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">distance</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span>
-<span class="va">uf.times</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">uf</span>, <span class="va">monitor.type</span> <span class="op">==</span> <span class="st">"timestep"</span><span class="op">)</span>
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">uf.times</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">distance</span>, y<span class="op">=</span><span class="va">flow</span>, color<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co"># or try the default plot method</span>
-<span class="co"># plot(uf)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="va">uf.nodes</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">uf</span>, <span class="va">monitor.type</span> <span class="op">==</span> <span class="st">"node"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">uf.nodes</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">time</span>, y<span class="op">=</span><span class="va">flow</span>, color<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">distance</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">uf.times</span> <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">uf</span>, <span class="va">monitor.type</span> <span class="op">==</span> <span class="st">"timestep"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">uf.times</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">distance</span>, y<span class="op">=</span><span class="va">flow</span>, color<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">time</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># or try the default plot method</span></span>
+<span><span class="co"># plot(uf)</span></span></code></pre></div>
 <p><img src="quickstart_files/figure-html/uf-access-1.png" width="700"><img src="quickstart_files/figure-html/uf-access-2.png" width="700"></p>
 </div>
   </div>
@@ -206,11 +243,13 @@ Q = \frac{C_m}{n} AR^{2/3}S_0^{1/2}
 
 
       <footer><div class="copyright">
-  <p>Developed by Michael C Koohafkan.</p>
+  <p></p>
+<p>Developed by Michael C Koohafkan.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
@@ -218,6 +257,8 @@ Q = \frac{C_m}{n} AR^{2/3}S_0^{1/2}
 
   
 
+
+  
 
   </body>
 </html>
