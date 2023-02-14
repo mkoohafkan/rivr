@@ -5,6 +5,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // froude
 double froude(double Q, double g, double A, double DH);
 RcppExport SEXP _rivr_froude(SEXP QSEXP, SEXP gSEXP, SEXP ASEXP, SEXP DHSEXP) {
