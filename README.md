@@ -1,8 +1,8 @@
 # rivr: A package for teaching open-channel hydraulics <a href='https://github.com/mkoohafkan/rivr'><img src='man/figures/logo.png' align="right" height="139" /></a>
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/mkoohafkan/rivr/workflows/R-CMD-check/badge.svg)](https://github.com/mkoohafkan/rivr/actions)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rivr)](http://cran.r-project.org/package=rivr)
+[![R-CMD-check](https://github.com/mkoohafkan/rivr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mkoohafkan/rivr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 See the documentation at [hydroecology.net/rivr](https://hydroecology.net/rivr)
