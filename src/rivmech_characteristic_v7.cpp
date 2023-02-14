@@ -169,6 +169,9 @@ double critical_depth(double Q, double yopt, double g, double B, double SS){
     dy = (pow(gp["A"], 3.0)/gp["dAdy"] - pow(Q, 2.0)/g) / 
       (3.0*pow(gp["A"], 2.0) - pow(gp["A"], 3.0)*gp["dTdy"] / 
       pow(gp["dAdy"], 2.0));
+    //alternate formulation, but not as good for NR
+    //dy = (1 - pow(Q, 2.0)*gp["dAdy"]/(g*pow(gp["A"], 3.0))) / 
+    //  (1.5*sqrt(gp["A"]*gp["dAdy"]) - 0.5*pow(gp["A"]/gp["dAdy"], 1.5)*gp["dTdy"]);
     yopt -= dy;
     i++;
   }
