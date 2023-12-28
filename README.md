@@ -2,7 +2,9 @@
 
 <!-- badges: start -->
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/rivr)](http://cran.r-project.org/package=rivr)
+[![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/mkoohafkan/rivr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mkoohafkan/rivr/actions/workflows/R-CMD-check.yaml)
+[![CRAN_Download_Badge](https://cranlogs.r-pkg.org/badges/grand-total/rivr)](http://cran.r-project.org/package=rivr)
 <!-- badges: end -->
 
 See the documentation at [hydroecology.net/rivr](https://hydroecology.net/rivr)
