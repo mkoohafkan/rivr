@@ -1,63 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/publication-reproduction.html</loc>
-  </url>
-  <url>
-    <loc>/articles/quickstart.html</loc>
-  </url>
-  <url>
-    <loc>/articles/technical-vignette.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/channel_geom.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compute_profile.html</loc>
-  </url>
-  <url>
-    <loc>/reference/conveyance.html</loc>
-  </url>
-  <url>
-    <loc>/reference/critical_depth.html</loc>
-  </url>
-  <url>
-    <loc>/reference/demo_shiny.html</loc>
-  </url>
-  <url>
-    <loc>/reference/froude.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/normal_depth.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rivr-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/route_wave.html</loc>
-  </url>
-  <url>
-    <loc>/reference/waterolympics.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/publication-reproduction.html</loc></url>
+<url><loc>/articles/quickstart.html</loc></url>
+<url><loc>/articles/technical-vignette.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/channel_geom.html</loc></url>
+<url><loc>/reference/compute_profile.html</loc></url>
+<url><loc>/reference/conveyance.html</loc></url>
+<url><loc>/reference/critical_depth.html</loc></url>
+<url><loc>/reference/demo_shiny.html</loc></url>
+<url><loc>/reference/froude.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/normal_depth.html</loc></url>
+<url><loc>/reference/rivr-package.html</loc></url>
+<url><loc>/reference/route_wave.html</loc></url>
+<url><loc>/reference/waterolympics.html</loc></url>
 </urlset>
+
